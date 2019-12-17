@@ -1,10 +1,11 @@
 var AWS = require("aws-sdk");
 AWS.config.update({region: "us-east-1"});
+AWS.config.update({profile: "FT"});
 var documentClient = new AWS.DynamoDB.DocumentClient();
 
 var fs = require("fs");
 
-var sleep = require("sleep");
+//var sleep = require("sleep");
 
 var musicData = fs.readFileSync("musicData.json");
 var jsonContent = JSON.parse(musicData);
@@ -14,7 +15,7 @@ for (entry in jsonContent) {
     console.log(jsonContent[entry])
 
     var params = {
-        TableName : "PrometheonMusic",
+        TableName : "GameScores",
         Item: jsonContent[entry]
     };
 
@@ -22,5 +23,5 @@ for (entry in jsonContent) {
         if (err) console.log(err);
         else console.log(data);
     });
-    sleep.msleep(300)
+  //    sleep.msleep(300)
 }

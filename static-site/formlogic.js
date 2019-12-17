@@ -4,7 +4,7 @@
 
 // Do NOT include the /id but make sure you DO include the /prometheon
 
-var API_ENDPOINT = 'https://example1a2s3d.execute-api.us-east-1.amazonaws.com/dev/prometheon';
+var API_ENDPOINT = 'https://nh2n5wkva8.execute-api.us-east-1.amazonaws.com/dev/prometheon';
 
 // Setup divs that will be used to display interactive messages
 var errorDiv = document.getElementById('error-message')
@@ -39,7 +39,7 @@ document.getElementById('listButton').addEventListener('click', function (event)
         method: 'GET',
         mode: 'cors'
     })
-    .then((resp) => resp.json()) 
+    .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Success! Check the fetched items below';
@@ -67,7 +67,7 @@ document.getElementById('getButton').addEventListener('click', function (event) 
         method: 'GET',
         mode: 'cors'
     })
-    .then((resp) => resp.json()) 
+    .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Success! Check the fetched item below';
@@ -85,7 +85,7 @@ document.getElementById('deleteButton').addEventListener('click', function (even
     event.preventDefault()
     clearNotifications()
     // Prepare the appropriate HTTP request to the API with fetch
-    // Delete used the /prometheon/id resource path 
+    // Delete used the /prometheon/id resource path
     // It also requires a JSON body payload
     fetch(API_ENDPOINT+'/id', {
         headers:{
@@ -98,7 +98,7 @@ document.getElementById('deleteButton').addEventListener('click', function (even
         }),
         mode: 'cors'
     })
-    .then((resp) => resp.json()) 
+    .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Success! Check the status of the item below';
@@ -114,7 +114,7 @@ document.getElementById('deleteButton').addEventListener('click', function (even
 document.getElementById('updateButton').addEventListener('click', function (event) {
     // Prevent the page reloading and clear exisiting notifications
     event.preventDefault()
-    clearNotifications()    
+    clearNotifications()
     // Prepare the appropriate HTTP request to the API with fetch
     // update uses the /prometheon/id endpoint and requires a JSON payload
     fetch(API_ENDPOINT+'/id', {
@@ -132,7 +132,7 @@ document.getElementById('updateButton').addEventListener('click', function (even
         }),
         mode: 'cors'
     })
-    .then((resp) => resp.json()) 
+    .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Success! Check the updated item below';
@@ -167,7 +167,7 @@ document.getElementById('createButton').addEventListener('click', function (even
         }),
         mode: 'cors'
     })
-    .then((resp) => resp.json()) 
+    .then((resp) => resp.json())
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Success! Check the created item below';
